@@ -12,7 +12,7 @@ function Z = compute_heightMap(N, mask)
 %
 
 [im_h, im_w, ~] = size(N);
-
+tic
 % 2D index to 1D object index
 [obj_h, obj_w] = find(mask);
 no_pix = size(obj_h, 1);
@@ -96,4 +96,5 @@ for idx = 1:no_pix
     % Rescale
     Z(h, w) = (z(idx)-z_min)/(z_max-z_min)*255;
 end
-
+toc
+disp('Height map computed.')
